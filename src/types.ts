@@ -1,0 +1,25 @@
+export interface Region {
+    readonly id: number;
+    readonly name: string;
+    readonly code: string;
+}
+
+export interface Province {
+    readonly id: number;
+    readonly name: string;
+    readonly code: string;
+}
+
+export interface District {
+    readonly id: number;
+    readonly name: string;
+    readonly ubigeo: string;
+}
+
+export interface ExpandedProvince extends Province {
+    readonly districts: readonly District[];
+}
+
+export interface ExpandedRegion extends Region {
+    readonly provinces: readonly ExpandedProvince[];
+}
