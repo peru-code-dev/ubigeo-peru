@@ -1,0 +1,41 @@
+{
+    "name": "@hotfixcode/ubigeo-peru",
+    "version": "1.0.0",
+    "description": "SDK for Peruvian ubigeo data — zero dependencies",
+    "type": "module",
+    "main": "./dist/index.cjs",
+    "module": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "import": "./dist/index.js",
+            "require": "./dist/index.cjs"
+        }
+    },
+    "files": [
+        "dist"
+    ],
+    "scripts": {
+        "build": "tsup",
+        "build:dev": "tsup --watch",
+        "test": "vitest run",
+        "dev": "vitest",
+        "typecheck": "tsc --noEmit"
+    },
+    "devDependencies": {
+        "@types/node": "^26.0.0",
+        "tsup": "^8.3.0",
+        "typescript": "^6.0.0",
+        "vitest": "^4.1.0"
+    },
+    "keywords": [
+        "ubigeo",
+        "peru",
+        "inei",
+        "districts",
+        "provinces",
+        "regions"
+    ],
+    "license": "MIT"
+}
