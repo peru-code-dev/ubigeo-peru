@@ -3,27 +3,19 @@ import provinceProvider from '@/providers/ProvinceProvider.js';
 import districtProvider from '@/providers/DistrictProvider.js';
 import rawData from '@/data/regions.json' with { type: 'json' };
 
+const data: readonly Region[] = rawData as Region[];
+const byId = new Map(data.map(region => [region.id, region]));
+const byIneiCode = new Map(data.map(region => [region.ineiCode, region]));
+const byReniecCode = new Map(data.map(region => [region.reniecCode, region]));
+
 class RegionProvider {
-    readonly #data: readonly Region[] = rawData as Region[];
-
-    readonly #byId = new Map(
-        this.#data.map(region => [region.id, region])
-    );
-
-    readonly #byIneiCode = new Map(
-        this.#data.map(region => [region.ineiCode, region])
-    );
-
-    readonly #byReniecCode = new Map(
-        this.#data.map(region => [region.reniecCode, region])
-    );
 
     all(): readonly Region[] {
-        return this.#data;
+        return data;
     }
 
     find(id: number): Region | null {
-        return this.#byId.get(id) ?? null;
+        return byId.get(id) ?? null;
     }
 
     expand(id: number): ExpandedRegion | null {
@@ -39,11 +31,11 @@ class RegionProvider {
     }
 
     findByIneiCode(code: string): Region | null {
-        return this.#byIneiCode.get(code) ?? null;
+        return byIneiCode.get(code) ?? null;
     }
 
     findByReniecCode(code: string): Region | null {
-        return this.#byReniecCode.get(code) ?? null;
+        return byReniecCode.get(code) ?? null;
     }
 }
 
