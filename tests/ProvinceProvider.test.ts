@@ -14,10 +14,12 @@ describe('ProvinceProvider', () => {
             result.forEach(p => {
                 expect(p).toHaveProperty('id');
                 expect(p).toHaveProperty('name');
-                expect(p).toHaveProperty('code');
+                expect(p).toHaveProperty('ineiCode');
+                expect(p).toHaveProperty('reniecCode');
                 expect(typeof p.id).toBe('number');
                 expect(typeof p.name).toBe('string');
-                expect(typeof p.code).toBe('string');
+                expect(typeof p.ineiCode).toBe('string');
+                expect(typeof p.reniecCode).toBe('string');
             });
         });
 
@@ -53,7 +55,8 @@ describe('ProvinceProvider', () => {
             const result = provinces.find(141);
             expect(result).toBeDefined();
             expect(result!.name).toBe('LIMA');
-            expect(result!.code).toBe('1501');
+            expect(result!.ineiCode).toBe('1501');
+            expect(result!.reniecCode).toBe('1501');
         });
 
         it('should return province for existing id 142 (Barranca)', () => {
@@ -89,36 +92,61 @@ describe('ProvinceProvider', () => {
         });
     });
 
-    describe('findByCode()', () => {
-        it('should return province for existing code "1501" (Lima)', () => {
-            const result = provinces.findByCode('1501');
+    describe('findByIneiCode()', () => {
+        it('should return province for existing ineiCode "1501" (Lima)', () => {
+            const result = provinces.findByIneiCode('1501');
             expect(result).toBeDefined();
             expect(result!.id).toBe(141);
             expect(result!.name).toBe('LIMA');
         });
 
-        it('should return province for existing code "1502" (Barranca)', () => {
-            const result = provinces.findByCode('1502');
+        it('should return province for existing ineiCode "1502" (Barranca)', () => {
+            const result = provinces.findByIneiCode('1502');
             expect(result).toBeDefined();
             expect(result!.name).toBe('BARRANCA');
         });
 
-        it('should return province for existing code "1503" (Cajatambo)', () => {
-            const result = provinces.findByCode('1503');
+        it('should return province for existing ineiCode "1503" (Cajatambo)', () => {
+            const result = provinces.findByIneiCode('1503');
             expect(result).toBeDefined();
             expect(result!.name).toBe('CAJATAMBO');
         });
 
-        it('should return null for non-existing code', () => {
-            expect(provinces.findByCode('999999')).toBeNull();
+        it('should return null for non-existing ineiCode', () => {
+            expect(provinces.findByIneiCode('999999')).toBeNull();
         });
 
         it('should return null for empty string', () => {
-            expect(provinces.findByCode('')).toBeNull();
+            expect(provinces.findByIneiCode('')).toBeNull();
+        });
+    });
+
+    describe('findByReniecCode()', () => {
+        it('should return province for existing reniecCode "1501" (Lima)', () => {
+            const result = provinces.findByReniecCode('1501');
+            expect(result).toBeDefined();
+            expect(result!.id).toBe(141);
+            expect(result!.name).toBe('LIMA');
         });
 
-        it('should handle type coercion correctly', () => {
-            expect(provinces.findByCode(1501 as unknown as string)).toBeNull();
+        it('should return province for existing reniecCode "1502" (Barranca)', () => {
+            const result = provinces.findByReniecCode('1502');
+            expect(result).toBeDefined();
+            expect(result!.name).toBe('BARRANCA');
+        });
+
+        it('should return province for existing reniecCode "1503" (Cajatambo)', () => {
+            const result = provinces.findByReniecCode('1503');
+            expect(result).toBeDefined();
+            expect(result!.name).toBe('CAJATAMBO');
+        });
+
+        it('should return null for non-existing reniecCode', () => {
+            expect(provinces.findByReniecCode('999999')).toBeNull();
+        });
+
+        it('should return null for empty string', () => {
+            expect(provinces.findByReniecCode('')).toBeNull();
         });
     });
 

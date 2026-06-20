@@ -146,7 +146,8 @@ describe('RegionProvider', () => {
             result!.provinces.forEach(province => {
                 expect(province).toHaveProperty('id');
                 expect(province).toHaveProperty('name');
-                expect(province).toHaveProperty('code');
+                expect(province).toHaveProperty('ineiCode');
+                expect(province).toHaveProperty('reniecCode');
                 expect(province.districts).toBeInstanceOf(Array);
             });
         });
