@@ -1,4 +1,3 @@
-// src/index.ts
 import regionProvider   from './providers/RegionProvider.js';
 import provinceProvider from './providers/ProvinceProvider.js';
 import districtProvider from './providers/DistrictProvider.js';
@@ -14,8 +13,9 @@ export type {
 export const regions = {
     all: () => regionProvider.all(),
     find: (id: number) => regionProvider.find(id),
-    findByCode: (code: string) => regionProvider.findByCode(code),
     expand: (id: number) => regionProvider.expand(id),
+    findByIneiCode: (code: string) => regionProvider.findByIneiCode(code),
+    findByReniecCode: (code: string) => regionProvider.findByReniecCode(code),
 };
 
 export const departments = regions;

@@ -3,7 +3,7 @@ import { regions, provinces, districts } from '@/index.js';
 
 describe('Integration: hierarchical relationships', () => {
     it('should traverse Region -> Province -> District chain for Lima', () => {
-        const region = regions.findByCode('15');
+        const region = regions.findByIneiCode('15');
         expect(region).toBeDefined();
         expect(region!.name).toBe('LIMA');
 
@@ -53,7 +53,7 @@ describe('Integration: hierarchical relationships', () => {
         const limaProvince = provinces.findByCode('1501');
         expect(limaProvince).toBeDefined();
 
-        const limaRegion = regions.findByCode('15');
+        const limaRegion = regions.findByIneiCode('15');
         expect(limaRegion).toBeDefined();
 
         const regionProvinces = provinces.byRegion(limaRegion!.id);
@@ -81,7 +81,7 @@ describe('Integration: hierarchical relationships', () => {
         const regionCode = ubigeo.substring(0, 2);
         const provinceCode = ubigeo.substring(0, 4);
 
-        const region = regions.findByCode(regionCode);
+        const region = regions.findByIneiCode(regionCode);
         expect(region).toBeDefined();
 
         const province = provinces.findByCode(provinceCode);

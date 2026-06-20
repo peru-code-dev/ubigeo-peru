@@ -1,7 +1,8 @@
 export interface Region {
     readonly id: number;
     readonly name: string;
-    readonly code: string;
+    readonly ineiCode: string;
+    readonly reniecCode: string;
 }
 
 export interface Province {
