@@ -1,33 +1,34 @@
-import type { Province } from '../types.js';
-import rawData from '../data/provinces.json' with { type: 'json' };
+import type { Province, Region } from '@/types.js';
+import rawData from '@/data/provinces.json' with { type: 'json' };
 
-const typedData = rawData as Record<string, Province[]>;
-const flatData = Object.values(typedData).flat();
-const mapByCode = new Map<string, Province>(
-    flatData.map(p => [p.code, p])
-);
+const data = rawData as Record<string, Province[]>;
+const flat = Object.values(data).flat();
+const byId = new Map(flat.map(p => [p.id, p]));
+const byIneiCode = new Map<string, Province>(flat.map(p => [p.ineiCode, p]));
+const byReniecCode = new Map<string, Province>(flat.map(p => [p.reniecCode, p]));
 
 class ProvinceProvider {
-    readonly #data: Record<string, Province[]> = typedData;
-    readonly #flat: readonly Province[] = flatData;
-    readonly #byCode: Map<string, Province> = mapByCode;
 
     byRegion(regionId: number): readonly Province[] {
-        return this.#data[regionId] ?? [];
+        return data[String(regionId)] ?? [];
     }
 
     find(id: number): Province | null {
-        return this.#flat.find(p => p.id === id) ?? null;
-    }
-
-    findByCode(code: string): Province | null {
-        return this.#byCode.get(code) ?? null;
+        return byId.get(id) ?? null;
     }
 
     search(query: string): Province[] {
         const q = query.toUpperCase().trim();
         if (!q) return [];
-        return this.#flat.filter(p => p.name.toUpperCase().includes(q));
+        return flat.filter(p => p.name.toUpperCase().includes(q));
+    }
+
+    findByIneiCode(code: string): Region | null {
+        return byIneiCode.get(code) ?? null;
+    }
+
+    findByReniecCode(code: string): Region | null {
+        return byReniecCode.get(code) ?? null;
     }
 }
 
