@@ -14,10 +14,12 @@ describe('DistrictProvider', () => {
             result.forEach(d => {
                 expect(d).toHaveProperty('id');
                 expect(d).toHaveProperty('name');
-                expect(d).toHaveProperty('ubigeo');
+                expect(d).toHaveProperty('ineiCode');
+                expect(d).toHaveProperty('reniecCode');
                 expect(typeof d.id).toBe('number');
                 expect(typeof d.name).toBe('string');
-                expect(typeof d.ubigeo).toBe('string');
+                expect(typeof d.ineiCode).toBe('string');
+                expect(typeof d.reniecCode).toBe('string');
             });
         });
 
@@ -56,14 +58,15 @@ describe('DistrictProvider', () => {
             const result = districts.find(1401);
             expect(result).toBeDefined();
             expect(result!.name).toBe('LIMA');
-            expect(result!.ubigeo).toBe('150101');
+            expect(result!.ineiCode).toBe('150101');
+            expect(result!.reniecCode).toBe('150101');
         });
 
         it('should return district for existing id 1402 (Ancon)', () => {
             const result = districts.find(1402);
             expect(result).toBeDefined();
             expect(result!.name).toBe('ANCON');
-            expect(result!.ubigeo).toBe('150102');
+            expect(result!.ineiCode).toBe('150102');
         });
 
         it('should return district for existing id 1405 (Brena)', () => {
@@ -85,30 +88,49 @@ describe('DistrictProvider', () => {
         });
     });
 
-    describe('findByUbigeo()', () => {
-        it('should return district for existing ubigeo "150101" (Lima)', () => {
-            const result = districts.findByUbigeo('150101');
+    describe('findByIneiCode()', () => {
+        it('should return district for existing ineiCode "150101" (Lima)', () => {
+            const result = districts.findByIneiCode('150101');
             expect(result).toBeDefined();
             expect(result!.id).toBe(1401);
             expect(result!.name).toBe('LIMA');
         });
 
-        it('should return district for existing ubigeo "150105" (Brena)', () => {
-            const result = districts.findByUbigeo('150105');
+        it('should return district for existing ineiCode "150105" (Brena)', () => {
+            const result = districts.findByIneiCode('150105');
             expect(result).toBeDefined();
             expect(result!.name).toBe('BRENA');
         });
 
-        it('should return null for non-existing ubigeo', () => {
-            expect(districts.findByUbigeo('999999')).toBeNull();
+        it('should return null for non-existing ineiCode', () => {
+            expect(districts.findByIneiCode('999999')).toBeNull();
         });
 
         it('should return null for empty string', () => {
-            expect(districts.findByUbigeo('')).toBeNull();
+            expect(districts.findByIneiCode('')).toBeNull();
+        });
+    });
+
+    describe('findByReniecCode()', () => {
+        it('should return district for existing reniecCode "150101" (Lima)', () => {
+            const result = districts.findByReniecCode('150101');
+            expect(result).toBeDefined();
+            expect(result!.id).toBe(1401);
+            expect(result!.name).toBe('LIMA');
         });
 
-        it('should handle type coercion correctly', () => {
-            expect(districts.findByUbigeo(150101 as unknown as string)).toBeNull();
+        it('should return district for existing reniecCode "150105" (Brena)', () => {
+            const result = districts.findByReniecCode('150105');
+            expect(result).toBeDefined();
+            expect(result!.name).toBe('BRENA');
+        });
+
+        it('should return null for non-existing reniecCode', () => {
+            expect(districts.findByReniecCode('999999')).toBeNull();
+        });
+
+        it('should return null for empty string', () => {
+            expect(districts.findByReniecCode('')).toBeNull();
         });
     });
 

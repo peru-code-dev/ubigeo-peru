@@ -12,14 +12,14 @@ describe('Integration: hierarchical relationships', () => {
 
         const limaProvince = regionProvinces.find(p => p.name === 'LIMA');
         expect(limaProvince).toBeDefined();
-        expect(limaProvince!.code).toBe('1501');
+        expect(limaProvince!.ineiCode).toBe('1501');
 
         const provinceDistricts = districts.byProvince(limaProvince!.id);
         expect(provinceDistricts.length).toBeGreaterThan(0);
 
         const limaDistrict = provinceDistricts.find(d => d.name === 'LIMA');
         expect(limaDistrict).toBeDefined();
-        expect(limaDistrict!.ubigeo).toBe('150101');
+        expect(limaDistrict!.ineiCode).toBe('150101');
     });
 
     it('should traverse Region -> Province -> District chain for Barranca', () => {
@@ -29,7 +29,7 @@ describe('Integration: hierarchical relationships', () => {
         const province = provinces.find(142);
         expect(province).toBeDefined();
         expect(province!.name).toBe('BARRANCA');
-        expect(province!.code).toBe('1502');
+        expect(province!.ineiCode).toBe('1502');
 
         const districtsInProvince = districts.byProvince(province!.id);
         expect(districtsInProvince).toEqual([]);
@@ -45,12 +45,12 @@ describe('Integration: hierarchical relationships', () => {
         expanded!.provinces.forEach((ep, i) => {
             expect(ep.id).toBe(directProvinces[i].id);
             expect(ep.name).toBe(directProvinces[i].name);
-            expect(ep.code).toBe(directProvinces[i].code);
+            expect(ep.ineiCode).toBe(directProvinces[i].ineiCode);
         });
     });
 
     it('should find province then verify it belongs to correct region', () => {
-        const limaProvince = provinces.findByCode('1501');
+        const limaProvince = provinces.findByIneiCode('1501');
         expect(limaProvince).toBeDefined();
 
         const limaRegion = regions.findByIneiCode('15');
@@ -61,7 +61,7 @@ describe('Integration: hierarchical relationships', () => {
     });
 
     it('should find district then verify it belongs to correct province', () => {
-        const limaDistrict = districts.findByUbigeo('150101');
+        const limaDistrict = districts.findByIneiCode('150101');
         expect(limaDistrict).toBeDefined();
 
         const limaProvince = provinces.find(141);
@@ -72,19 +72,19 @@ describe('Integration: hierarchical relationships', () => {
     });
 
     it('should verify ubigeo code structure (regionCode + provinceCode + districtCode)', () => {
-        const district = districts.findByUbigeo('150101');
+        const district = districts.findByIneiCode('150101');
         expect(district).toBeDefined();
 
-        const ubigeo = district!.ubigeo;
-        expect(ubigeo).toHaveLength(6);
+        const ineiCode = district!.ineiCode;
+        expect(ineiCode).toHaveLength(6);
 
-        const regionCode = ubigeo.substring(0, 2);
-        const provinceCode = ubigeo.substring(0, 4);
+        const regionCode = ineiCode.substring(0, 2);
+        const provinceCode = ineiCode.substring(0, 4);
 
         const region = regions.findByIneiCode(regionCode);
         expect(region).toBeDefined();
 
-        const province = provinces.findByCode(provinceCode);
+        const province = provinces.findByIneiCode(provinceCode);
         expect(province).toBeDefined();
     });
 });
