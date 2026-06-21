@@ -31,6 +31,7 @@ export const provinces = {
 export const districts = {
     byProvince: (provinceId: number) => districtProvider.byProvince(provinceId),
     find: (id: number) => districtProvider.find(id),
-    findByUbigeo: (ubigeo: string) => districtProvider.findByUbigeo(ubigeo),
     search: (query: string) => districtProvider.search(query),
+    findByIneiCode: (code: string) => districtProvider.findByIneiCode(code),
+    findByReniecCode: (code: string) => districtProvider.findByReniecCode(code),
 };

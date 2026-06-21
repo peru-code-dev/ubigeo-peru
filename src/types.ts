@@ -15,7 +15,8 @@ export interface Province {
 export interface District {
     readonly id: number;
     readonly name: string;
-    readonly ubigeo: string;
+    readonly ineiCode: string;
+    readonly reniecCode: string;
 }
 
 export interface ExpandedProvince extends Province {
