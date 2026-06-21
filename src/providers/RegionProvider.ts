@@ -24,7 +24,7 @@ class RegionProvider {
 
         const provinces = provinceProvider.byRegionId(id).map(p => ({
             ...p,
-            districts: districtProvider.byProvince(p.id),
+            districts: districtProvider.byProvinceId(p.id),
         }));
 
         return { ...region, provinces };

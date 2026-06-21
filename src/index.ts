@@ -29,7 +29,7 @@ export const provinces = {
 };
 
 export const districts = {
-    byProvince: (provinceId: number) => districtProvider.byProvince(provinceId),
+    byProvinceId: (provinceId: number) => districtProvider.byProvinceId(provinceId),
     find: (id: number) => districtProvider.find(id),
     search: (query: string) => districtProvider.search(query),
     findByIneiCode: (code: string) => districtProvider.findByIneiCode(code),

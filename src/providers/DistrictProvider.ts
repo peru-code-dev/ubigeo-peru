@@ -9,7 +9,7 @@ const byReniecCode = new Map<string, District>(flatData.map(d => [d.reniecCode, 
 
 class DistrictProvider {
 
-    byProvince(provinceId: number): readonly District[] {
+    byProvinceId(provinceId: number): readonly District[] {
         return data[String(provinceId)] ?? [];
     }
 
