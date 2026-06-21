@@ -21,7 +21,7 @@ export const regions = {
 export const departments = regions;
 
 export const provinces = {
-    byRegion: (regionId: number) => provinceProvider.byRegion(regionId),
+    byRegionId: (regionId: number) => provinceProvider.byRegionId(regionId),
     find: (id: number) => provinceProvider.find(id),
     search: (query: string) => provinceProvider.search(query),
     findByIneiCode: (code: string) => provinceProvider.findByIneiCode(code),

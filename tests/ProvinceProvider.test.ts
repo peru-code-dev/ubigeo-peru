@@ -2,15 +2,15 @@ import { describe, it, expect } from 'vitest';
 import { provinces } from '@/index.js';
 
 describe('ProvinceProvider', () => {
-    describe('byRegion()', () => {
+    describe('byRegionId()', () => {
         it('should return provinces for region id 15 (Lima)', () => {
-            const result = provinces.byRegion(15);
+            const result = provinces.byRegionId(15);
             expect(result).toBeInstanceOf(Array);
             expect(result.length).toBeGreaterThan(0);
         });
 
         it('should return provinces with correct structure', () => {
-            const result = provinces.byRegion(15);
+            const result = provinces.byRegionId(15);
             result.forEach(p => {
                 expect(p).toHaveProperty('id');
                 expect(p).toHaveProperty('name');
@@ -24,7 +24,7 @@ describe('ProvinceProvider', () => {
         });
 
         it('should return exact province names for Lima region', () => {
-            const result = provinces.byRegion(15);
+            const result = provinces.byRegionId(15);
             const names = result.map(p => p.name);
             expect(names).toContain('LIMA');
             expect(names).toContain('BARRANCA');
@@ -32,20 +32,20 @@ describe('ProvinceProvider', () => {
         });
 
         it('should return empty array for region with no provinces', () => {
-            const result = provinces.byRegion(999);
+            const result = provinces.byRegionId(999);
             expect(result).toEqual([]);
         });
 
         it('should return empty array for negative id', () => {
-            expect(provinces.byRegion(-1)).toEqual([]);
+            expect(provinces.byRegionId(-1)).toEqual([]);
         });
 
         it('should return empty array for id 0', () => {
-            expect(provinces.byRegion(0)).toEqual([]);
+            expect(provinces.byRegionId(0)).toEqual([]);
         });
 
         it('should return provinces for region id 1 (Amazonas) if data exists', () => {
-            const result = provinces.byRegion(1);
+            const result = provinces.byRegionId(1);
             expect(result).toBeInstanceOf(Array);
         });
     });

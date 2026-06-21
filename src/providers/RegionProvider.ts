@@ -22,7 +22,7 @@ class RegionProvider {
         const region = this.find(id);
         if (!region) return null;
 
-        const provinces = provinceProvider.byRegion(id).map(p => ({
+        const provinces = provinceProvider.byRegionId(id).map(p => ({
             ...p,
             districts: districtProvider.byProvince(p.id),
         }));
