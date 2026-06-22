@@ -1,4 +1,4 @@
-import type {District, Region} from '@/types.js';
+import type {District} from '@/types.js';
 import rawData from '@/data/districts.json' with { type: 'json' };
 
 const data = rawData as Record<string, District[]>;
@@ -23,11 +23,11 @@ class DistrictProvider {
         return flatData.filter(d => d.name.toUpperCase().includes(q));
     }
 
-    findByIneiCode(code: string): Region | null {
+    findByIneiCode(code: string): District | null {
         return byIneiCode.get(code) ?? null;
     }
 
-    findByReniecCode(code: string): Region | null {
+    findByReniecCode(code: string): District | null {
         return byReniecCode.get(code) ?? null;
     }
 }
