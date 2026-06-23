@@ -39,109 +39,109 @@
         "id": 7,
         "name": "CALLAO",
         "ineiCode": "07",
-        "reniecCode": "07"
+        "reniecCode": "24"
     },
     {
         "id": 8,
         "name": "CUSCO",
         "ineiCode": "08",
-        "reniecCode": "08"
+        "reniecCode": "07"
     },
     {
         "id": 9,
         "name": "HUANCAVELICA",
         "ineiCode": "09",
-        "reniecCode": "09"
+        "reniecCode": "08"
     },
     {
         "id": 10,
         "name": "HUANUCO",
         "ineiCode": "10",
-        "reniecCode": "10"
+        "reniecCode": "09"
     },
     {
         "id": 11,
         "name": "ICA",
         "ineiCode": "11",
-        "reniecCode": "11"
+        "reniecCode": "10"
     },
     {
         "id": 12,
         "name": "JUNIN",
         "ineiCode": "12",
-        "reniecCode": "12"
+        "reniecCode": "11"
     },
     {
         "id": 13,
         "name": "LA LIBERTAD",
         "ineiCode": "13",
-        "reniecCode": "13"
+        "reniecCode": "12"
     },
     {
         "id": 14,
         "name": "LAMBAYEQUE",
         "ineiCode": "14",
-        "reniecCode": "14"
+        "reniecCode": "13"
     },
     {
         "id": 15,
         "name": "LIMA",
         "ineiCode": "15",
-        "reniecCode": "15"
+        "reniecCode": "14"
     },
     {
         "id": 16,
         "name": "LORETO",
         "ineiCode": "16",
-        "reniecCode": "16"
+        "reniecCode": "15"
     },
     {
         "id": 17,
         "name": "MADRE DE DIOS",
         "ineiCode": "17",
-        "reniecCode": "17"
+        "reniecCode": "16"
     },
     {
         "id": 18,
         "name": "MOQUEGUA",
         "ineiCode": "18",
-        "reniecCode": "18"
+        "reniecCode": "17"
     },
     {
         "id": 19,
         "name": "PASCO",
         "ineiCode": "19",
-        "reniecCode": "19"
+        "reniecCode": "18"
     },
     {
         "id": 20,
         "name": "PIURA",
         "ineiCode": "20",
-        "reniecCode": "20"
+        "reniecCode": "19"
     },
     {
         "id": 21,
         "name": "PUNO",
         "ineiCode": "21",
-        "reniecCode": "21"
+        "reniecCode": "20"
     },
     {
         "id": 22,
         "name": "SAN MARTIN",
         "ineiCode": "22",
-        "reniecCode": "22"
+        "reniecCode": "21"
     },
     {
         "id": 23,
         "name": "TACNA",
         "ineiCode": "23",
-        "reniecCode": "23"
+        "reniecCode": "22"
     },
     {
         "id": 24,
         "name": "TUMBES",
         "ineiCode": "24",
-        "reniecCode": "24"
+        "reniecCode": "23"
     },
     {
         "id": 25,
