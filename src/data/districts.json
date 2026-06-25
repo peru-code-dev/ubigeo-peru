@@ -11407,41 +11407,47 @@
             "ineiCode": "230110",
             "reniecCode": "220113",
             "name": "CORONEL GREGORIO ALBARRACIN LANCHIPA"
+        },
+        {
+            "ineiCode": "230111",
+            "reniecCode": "220114",
+            "name": "LA YARADA LOS PALOS",
+            "id": 1841
         }
     ],
     "186": [
         {
-            "id": 1841,
+            "id": 1842,
             "ineiCode": "230201",
             "reniecCode": "220401",
             "name": "CANDARAVE"
         },
         {
-            "id": 1842,
+            "id": 1843,
             "ineiCode": "230202",
             "reniecCode": "220402",
             "name": "CAIRANI"
         },
         {
-            "id": 1843,
+            "id": 1844,
             "ineiCode": "230203",
             "reniecCode": "220406",
             "name": "CAMILACA"
         },
         {
-            "id": 1844,
+            "id": 1845,
             "ineiCode": "230204",
             "reniecCode": "220403",
             "name": "CURIBAYA"
         },
         {
-            "id": 1845,
+            "id": 1846,
             "ineiCode": "230205",
             "reniecCode": "220404",
             "name": "HUANUARA"
         },
         {
-            "id": 1846,
+            "id": 1847,
             "ineiCode": "230206",
             "reniecCode": "220405",
             "name": "QUILAHUANI"
@@ -11449,19 +11455,19 @@
     ],
     "187": [
         {
-            "id": 1847,
+            "id": 1848,
             "ineiCode": "230301",
             "reniecCode": "220301",
             "name": "LOCUMBA"
         },
         {
-            "id": 1848,
+            "id": 1849,
             "ineiCode": "230302",
             "reniecCode": "220303",
             "name": "ILABAYA"
         },
         {
-            "id": 1849,
+            "id": 1850,
             "ineiCode": "230303",
             "reniecCode": "220302",
             "name": "ITE"
@@ -11469,49 +11475,49 @@
     ],
     "188": [
         {
-            "id": 1850,
+            "id": 1851,
             "ineiCode": "230401",
             "reniecCode": "220201",
             "name": "TARATA"
         },
         {
-            "id": 1851,
+            "id": 1852,
             "ineiCode": "230402",
             "reniecCode": "220205",
             "name": "HÉROES ALBARRACÍN"
         },
         {
-            "id": 1852,
+            "id": 1853,
             "ineiCode": "230403",
             "reniecCode": "220206",
             "name": "ESTIQUE"
         },
         {
-            "id": 1853,
+            "id": 1854,
             "ineiCode": "230404",
             "reniecCode": "220207",
-            "name": "ESTIQUE-PAMPA"
+            "name": "ESTIQUE PAMPA"
         },
         {
-            "id": 1854,
+            "id": 1855,
             "ineiCode": "230405",
             "reniecCode": "220210",
             "name": "SITAJARA"
         },
         {
-            "id": 1855,
+            "id": 1856,
             "ineiCode": "230406",
             "reniecCode": "220211",
             "name": "SUSAPAYA"
         },
         {
-            "id": 1856,
+            "id": 1857,
             "ineiCode": "230407",
             "reniecCode": "220212",
             "name": "TARUCACHI"
         },
         {
-            "id": 1857,
+            "id": 1858,
             "ineiCode": "230408",
             "reniecCode": "220213",
             "name": "TICACO"
@@ -11519,37 +11525,37 @@
     ],
     "189": [
         {
-            "id": 1858,
+            "id": 1859,
             "ineiCode": "240101",
             "reniecCode": "230101",
             "name": "TUMBES"
         },
         {
-            "id": 1859,
+            "id": 1860,
             "ineiCode": "240102",
             "reniecCode": "230102",
             "name": "CORRALES"
         },
         {
-            "id": 1860,
+            "id": 1861,
             "ineiCode": "240103",
             "reniecCode": "230103",
             "name": "LA CRUZ"
         },
         {
-            "id": 1861,
+            "id": 1862,
             "ineiCode": "240104",
             "reniecCode": "230104",
             "name": "PAMPAS DE HOSPITAL"
         },
         {
-            "id": 1862,
+            "id": 1863,
             "ineiCode": "240105",
             "reniecCode": "230105",
             "name": "SAN JACINTO"
         },
         {
-            "id": 1863,
+            "id": 1864,
             "ineiCode": "240106",
             "reniecCode": "230106",
             "name": "SAN JUAN DE LA VIRGEN"
@@ -11557,19 +11563,19 @@
     ],
     "190": [
         {
-            "id": 1864,
+            "id": 1865,
             "ineiCode": "240201",
             "reniecCode": "230201",
             "name": "ZORRITOS"
         },
         {
-            "id": 1865,
+            "id": 1866,
             "ineiCode": "240202",
             "reniecCode": "230202",
             "name": "CASITAS"
         },
         {
-            "id": 1866,
+            "id": 1867,
             "ineiCode": "240203",
             "reniecCode": "230203",
             "name": "CANOAS DE PUNTA SAL"
@@ -11577,25 +11583,25 @@
     ],
     "191": [
         {
-            "id": 1867,
+            "id": 1868,
             "ineiCode": "240301",
             "reniecCode": "230301",
             "name": "ZARUMILLA"
         },
         {
-            "id": 1868,
+            "id": 1869,
             "ineiCode": "240302",
             "reniecCode": "230304",
             "name": "AGUAS VERDES"
         },
         {
-            "id": 1869,
+            "id": 1870,
             "ineiCode": "240303",
             "reniecCode": "230302",
             "name": "MATAPALO"
         },
         {
-            "id": 1870,
+            "id": 1871,
             "ineiCode": "240304",
             "reniecCode": "230303",
             "name": "PAPAYAL"
@@ -11603,43 +11609,43 @@
     ],
     "192": [
         {
-            "id": 1871,
+            "id": 1872,
             "ineiCode": "250101",
             "reniecCode": "250101",
             "name": "CALLERIA"
         },
         {
-            "id": 1872,
+            "id": 1873,
             "ineiCode": "250102",
             "reniecCode": "250104",
             "name": "CAMPOVERDE"
         },
         {
-            "id": 1873,
+            "id": 1874,
             "ineiCode": "250103",
             "reniecCode": "250105",
             "name": "IPARIA"
         },
         {
-            "id": 1874,
+            "id": 1875,
             "ineiCode": "250104",
             "reniecCode": "250103",
             "name": "MASISEA"
         },
         {
-            "id": 1875,
+            "id": 1876,
             "ineiCode": "250105",
             "reniecCode": "250102",
             "name": "YARINACOCHA"
         },
         {
-            "id": 1876,
+            "id": 1877,
             "ineiCode": "250106",
             "reniecCode": "250106",
             "name": "NUEVA REQUENA"
         },
         {
-            "id": 1877,
+            "id": 1878,
             "ineiCode": "250107",
             "reniecCode": "250107",
             "name": "MANANTAY"
@@ -11647,25 +11653,25 @@
     ],
     "193": [
         {
-            "id": 1878,
+            "id": 1879,
             "ineiCode": "250201",
             "reniecCode": "250301",
             "name": "RAIMONDI"
         },
         {
-            "id": 1879,
+            "id": 1880,
             "ineiCode": "250202",
             "reniecCode": "250304",
             "name": "SEPAHUA"
         },
         {
-            "id": 1880,
+            "id": 1881,
             "ineiCode": "250203",
             "reniecCode": "250302",
             "name": "TAHUANIA"
         },
         {
-            "id": 1881,
+            "id": 1882,
             "ineiCode": "250204",
             "reniecCode": "250303",
             "name": "YURUA"
@@ -11673,19 +11679,19 @@
     ],
     "194": [
         {
-            "id": 1882,
+            "id": 1883,
             "ineiCode": "250301",
             "reniecCode": "250201",
             "name": "PADRE ABAD"
         },
         {
-            "id": 1883,
+            "id": 1884,
             "ineiCode": "250302",
             "reniecCode": "250202",
             "name": "IRAZOLA"
         },
         {
-            "id": 1884,
+            "id": 1885,
             "ineiCode": "250303",
             "reniecCode": "250203",
             "name": "CURIMANÁ"
@@ -11693,7 +11699,7 @@
     ],
     "195": [
         {
-            "id": 1885,
+            "id": 1886,
             "ineiCode": "250401",
             "reniecCode": "250401",
             "name": "PURÚS"
@@ -11704,25 +11710,25 @@
             "ineiCode": "160801",
             "reniecCode": "150901",
             "name": "PUTUMAYO",
-            "id": 1886
+            "id": 1887
         },
         {
             "ineiCode": "160802",
             "reniecCode": "150902",
             "name": "ROSA PANDURO",
-            "id": 1887
+            "id": 1888
         },
         {
             "ineiCode": "160803",
             "reniecCode": "150903",
             "name": "TENIENTE MANUEL CLAVERO",
-            "id": 1888
+            "id": 1889
         },
         {
             "ineiCode": "160804",
             "reniecCode": "150904",
             "name": "YAGUAS",
-            "id": 1889
+            "id": 1890
         }
     ]
 }
