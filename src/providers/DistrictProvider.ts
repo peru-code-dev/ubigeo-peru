@@ -1,14 +1,13 @@
-import type {District} from '@/types.js';
+import type { District } from '@/types.js';
 import rawData from '@/data/districts.json' with { type: 'json' };
 
 const data: Record<string, District[]> = rawData;
 const flatData = Object.values(data).flat();
-const byId = new Map(flatData.map(p => [p.id, p]));
-const byIneiCode = new Map<string, District>(flatData.map(d => [d.ineiCode, d]));
-const byReniecCode = new Map<string, District>(flatData.map(d => [d.reniecCode, d]));
+const byId = new Map(flatData.map((p) => [p.id, p]));
+const byIneiCode = new Map<string, District>(flatData.map((d) => [d.ineiCode, d]));
+const byReniecCode = new Map<string, District>(flatData.map((d) => [d.reniecCode, d]));
 
 class DistrictProvider {
-
     byProvinceId(provinceId: number): readonly District[] {
         return data[String(provinceId)] ?? [];
     }
@@ -20,7 +19,7 @@ class DistrictProvider {
     search(query: string): District[] {
         const q = query.toUpperCase().trim();
         if (!q) return [];
-        return flatData.filter(d => d.name.toUpperCase().includes(q));
+        return flatData.filter((d) => d.name.toUpperCase().includes(q));
     }
 
     findByIneiCode(code: string): District | null {

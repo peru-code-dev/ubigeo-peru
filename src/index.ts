@@ -1,15 +1,9 @@
 import type { Region, Province, District, ExpandedRegion } from './types.js';
-import regionProvider   from './providers/RegionProvider.js';
+import regionProvider from './providers/RegionProvider.js';
 import provinceProvider from './providers/ProvinceProvider.js';
 import districtProvider from './providers/DistrictProvider.js';
 
-export type {
-    Region,
-    Province,
-    District,
-    ExpandedRegion,
-    ExpandedProvince
-} from './types.js';
+export type { Region, Province, District, ExpandedRegion, ExpandedProvince } from './types.js';
 
 export const regions = {
     all: (): readonly Region[] => regionProvider.all(),

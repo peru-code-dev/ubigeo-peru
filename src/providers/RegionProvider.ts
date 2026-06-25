@@ -4,12 +4,11 @@ import districtProvider from '@/providers/DistrictProvider.js';
 import rawData from '@/data/regions.json' with { type: 'json' };
 
 const data: readonly Region[] = rawData;
-const byId = new Map(data.map(region => [region.id, region]));
-const byIneiCode = new Map(data.map(region => [region.ineiCode, region]));
-const byReniecCode = new Map(data.map(region => [region.reniecCode, region]));
+const byId = new Map(data.map((region) => [region.id, region]));
+const byIneiCode = new Map(data.map((region) => [region.ineiCode, region]));
+const byReniecCode = new Map(data.map((region) => [region.reniecCode, region]));
 
 class RegionProvider {
-
     all(): readonly Region[] {
         return data;
     }
@@ -22,7 +21,7 @@ class RegionProvider {
         const region = this.find(id);
         if (!region) return null;
 
-        const provinces = provinceProvider.byRegionId(id).map(p => ({
+        const provinces = provinceProvider.byRegionId(id).map((p) => ({
             ...p,
             districts: districtProvider.byProvinceId(p.id),
         }));
