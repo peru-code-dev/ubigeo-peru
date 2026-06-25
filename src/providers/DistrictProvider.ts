@@ -6,6 +6,7 @@ const flatData = Object.values(data).flat();
 const byId = new Map(flatData.map((p) => [p.id, p]));
 const byIneiCode = new Map<string, District>(flatData.map((d) => [d.ineiCode, d]));
 const byReniecCode = new Map<string, District>(flatData.map((d) => [d.reniecCode, d]));
+const searchable = flatData.map((d) => ({ district: d, name: d.name.toUpperCase() }));
 
 class DistrictProvider {
     byProvinceId(provinceId: number): readonly District[] {
@@ -19,7 +20,10 @@ class DistrictProvider {
     search(query: string): District[] {
         const q = query.toUpperCase().trim();
         if (!q) return [];
-        return flatData.filter((d) => d.name.toUpperCase().includes(q));
+
+        return searchable
+            .filter((d) => d.name.includes(q))
+            .map((d) => d.district);
     }
 
     findByIneiCode(code: string): District | null {
