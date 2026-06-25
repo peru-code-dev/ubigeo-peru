@@ -1,3 +1,4 @@
+import type { Region, Province, District, ExpandedRegion } from './types.js';
 import regionProvider   from './providers/RegionProvider.js';
 import provinceProvider from './providers/ProvinceProvider.js';
 import districtProvider from './providers/DistrictProvider.js';
@@ -11,27 +12,27 @@ export type {
 } from './types.js';
 
 export const regions = {
-    all: () => regionProvider.all(),
-    find: (id: number) => regionProvider.find(id),
-    expand: (id: number) => regionProvider.expand(id),
-    findByIneiCode: (code: string) => regionProvider.findByIneiCode(code),
-    findByReniecCode: (code: string) => regionProvider.findByReniecCode(code),
+    all: (): readonly Region[] => regionProvider.all(),
+    find: (id: number): Region | null => regionProvider.find(id),
+    expand: (id: number): ExpandedRegion | null => regionProvider.expand(id),
+    findByIneiCode: (code: string): Region | null => regionProvider.findByIneiCode(code),
+    findByReniecCode: (code: string): Region | null => regionProvider.findByReniecCode(code),
 };
 
 export const departments = regions;
 
 export const provinces = {
-    byRegionId: (regionId: number) => provinceProvider.byRegionId(regionId),
-    find: (id: number) => provinceProvider.find(id),
-    search: (query: string) => provinceProvider.search(query),
-    findByIneiCode: (code: string) => provinceProvider.findByIneiCode(code),
-    findByReniecCode: (code: string) => provinceProvider.findByReniecCode(code),
+    byRegionId: (regionId: number): readonly Province[] => provinceProvider.byRegionId(regionId),
+    find: (id: number): Province | null => provinceProvider.find(id),
+    search: (query: string): Province[] => provinceProvider.search(query),
+    findByIneiCode: (code: string): Province | null => provinceProvider.findByIneiCode(code),
+    findByReniecCode: (code: string): Province | null => provinceProvider.findByReniecCode(code),
 };
 
 export const districts = {
-    byProvinceId: (provinceId: number) => districtProvider.byProvinceId(provinceId),
-    find: (id: number) => districtProvider.find(id),
-    search: (query: string) => districtProvider.search(query),
-    findByIneiCode: (code: string) => districtProvider.findByIneiCode(code),
-    findByReniecCode: (code: string) => districtProvider.findByReniecCode(code),
+    byProvinceId: (provinceId: number): readonly District[] => districtProvider.byProvinceId(provinceId),
+    find: (id: number): District | null => districtProvider.find(id),
+    search: (query: string): District[] => districtProvider.search(query),
+    findByIneiCode: (code: string): District | null => districtProvider.findByIneiCode(code),
+    findByReniecCode: (code: string): District | null => districtProvider.findByReniecCode(code),
 };
