@@ -1,19 +1,22 @@
 export interface Region {
     readonly id: number;
     readonly name: string;
-    readonly code: string;
+    readonly ineiCode: string;
+    readonly reniecCode: string;
 }
 
 export interface Province {
     readonly id: number;
     readonly name: string;
-    readonly code: string;
+    readonly ineiCode: string;
+    readonly reniecCode: string;
 }
 
 export interface District {
     readonly id: number;
     readonly name: string;
-    readonly ubigeo: string;
+    readonly ineiCode: string;
+    readonly reniecCode: string;
 }
 
 export interface ExpandedProvince extends Province {

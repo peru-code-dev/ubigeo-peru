@@ -1,35 +1,33 @@
-// src/index.ts
-import regionProvider   from './providers/RegionProvider.js';
-import provinceProvider from './providers/ProvinceProvider.js';
-import districtProvider from './providers/DistrictProvider.js';
+import type { Region, Province, District, ExpandedRegion } from '@/types.js';
+import regionProvider from '@/providers/RegionProvider.js';
+import provinceProvider from '@/providers/ProvinceProvider.js';
+import districtProvider from '@/providers/DistrictProvider.js';
 
-export type {
-    Region,
-    Province,
-    District,
-    ExpandedRegion,
-    ExpandedProvince
-} from './types.js';
+export type { Region, Province, District, ExpandedRegion, ExpandedProvince } from '@/types.js';
 
 export const regions = {
-    all: () => regionProvider.all(),
-    find: (id: number) => regionProvider.find(id),
-    findByCode: (code: string) => regionProvider.findByCode(code),
-    expand: (id: number) => regionProvider.expand(id),
+    all: (): readonly Region[] => regionProvider.all(),
+    find: (id: number): Region | null => regionProvider.find(id),
+    search: (query: string): Region[] => regionProvider.search(query),
+    expand: (id: number): ExpandedRegion | null => regionProvider.expand(id),
+    findByIneiCode: (code: string): Region | null => regionProvider.findByIneiCode(code),
+    findByReniecCode: (code: string): Region | null => regionProvider.findByReniecCode(code),
 };
 
 export const departments = regions;
 
 export const provinces = {
-    byRegion: (regionId: number) => provinceProvider.byRegion(regionId),
-    find: (id: number) => provinceProvider.find(id),
-    findByCode: (code: string) => provinceProvider.findByCode(code),
-    search: (query: string) => provinceProvider.search(query),
+    byRegionId: (regionId: number): readonly Province[] => provinceProvider.byRegionId(regionId),
+    find: (id: number): Province | null => provinceProvider.find(id),
+    search: (query: string): Province[] => provinceProvider.search(query),
+    findByIneiCode: (code: string): Province | null => provinceProvider.findByIneiCode(code),
+    findByReniecCode: (code: string): Province | null => provinceProvider.findByReniecCode(code),
 };
 
 export const districts = {
-    byProvince: (provinceId: number) => districtProvider.byProvince(provinceId),
-    find: (id: number) => districtProvider.find(id),
-    findByUbigeo: (ubigeo: string) => districtProvider.findByUbigeo(ubigeo),
-    search: (query: string) => districtProvider.search(query),
+    byProvinceId: (provinceId: number): readonly District[] => districtProvider.byProvinceId(provinceId),
+    find: (id: number): District | null => districtProvider.find(id),
+    search: (query: string): District[] => districtProvider.search(query),
+    findByIneiCode: (code: string): District | null => districtProvider.findByIneiCode(code),
+    findByReniecCode: (code: string): District | null => districtProvider.findByReniecCode(code),
 };

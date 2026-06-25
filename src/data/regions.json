@@ -1,27 +1,152 @@
 [
-    { "id": 1,  "name": "AMAZONAS",      "code": "01" },
-    { "id": 2,  "name": "ANCASH",        "code": "02" },
-    { "id": 3,  "name": "APURIMAC",      "code": "03" },
-    { "id": 4,  "name": "AREQUIPA",      "code": "04" },
-    { "id": 5,  "name": "AYACUCHO",      "code": "05" },
-    { "id": 6,  "name": "CAJAMARCA",     "code": "06" },
-    { "id": 7,  "name": "CALLAO",        "code": "07" },
-    { "id": 8,  "name": "CUSCO",         "code": "08" },
-    { "id": 9,  "name": "HUANCAVELICA",  "code": "09" },
-    { "id": 10, "name": "HUANUCO",       "code": "10" },
-    { "id": 11, "name": "ICA",           "code": "11" },
-    { "id": 12, "name": "JUNIN",         "code": "12" },
-    { "id": 13, "name": "LA LIBERTAD",   "code": "13" },
-    { "id": 14, "name": "LAMBAYEQUE",    "code": "14" },
-    { "id": 15, "name": "LIMA",          "code": "15" },
-    { "id": 16, "name": "LORETO",        "code": "16" },
-    { "id": 17, "name": "MADRE DE DIOS", "code": "17" },
-    { "id": 18, "name": "MOQUEGUA",      "code": "18" },
-    { "id": 19, "name": "PASCO",         "code": "19" },
-    { "id": 20, "name": "PIURA",         "code": "20" },
-    { "id": 21, "name": "PUNO",          "code": "21" },
-    { "id": 22, "name": "SAN MARTIN",    "code": "22" },
-    { "id": 23, "name": "TACNA",         "code": "23" },
-    { "id": 24, "name": "TUMBES",        "code": "24" },
-    { "id": 25, "name": "UCAYALI",       "code": "25" }
+    {
+        "id": 1,
+        "name": "AMAZONAS",
+        "ineiCode": "01",
+        "reniecCode": "01"
+    },
+    {
+        "id": 2,
+        "name": "ANCASH",
+        "ineiCode": "02",
+        "reniecCode": "02"
+    },
+    {
+        "id": 3,
+        "name": "APURIMAC",
+        "ineiCode": "03",
+        "reniecCode": "03"
+    },
+    {
+        "id": 4,
+        "name": "AREQUIPA",
+        "ineiCode": "04",
+        "reniecCode": "04"
+    },
+    {
+        "id": 5,
+        "name": "AYACUCHO",
+        "ineiCode": "05",
+        "reniecCode": "05"
+    },
+    {
+        "id": 6,
+        "name": "CAJAMARCA",
+        "ineiCode": "06",
+        "reniecCode": "06"
+    },
+    {
+        "id": 7,
+        "name": "CALLAO",
+        "ineiCode": "07",
+        "reniecCode": "24"
+    },
+    {
+        "id": 8,
+        "name": "CUSCO",
+        "ineiCode": "08",
+        "reniecCode": "07"
+    },
+    {
+        "id": 9,
+        "name": "HUANCAVELICA",
+        "ineiCode": "09",
+        "reniecCode": "08"
+    },
+    {
+        "id": 10,
+        "name": "HUANUCO",
+        "ineiCode": "10",
+        "reniecCode": "09"
+    },
+    {
+        "id": 11,
+        "name": "ICA",
+        "ineiCode": "11",
+        "reniecCode": "10"
+    },
+    {
+        "id": 12,
+        "name": "JUNIN",
+        "ineiCode": "12",
+        "reniecCode": "11"
+    },
+    {
+        "id": 13,
+        "name": "LA LIBERTAD",
+        "ineiCode": "13",
+        "reniecCode": "12"
+    },
+    {
+        "id": 14,
+        "name": "LAMBAYEQUE",
+        "ineiCode": "14",
+        "reniecCode": "13"
+    },
+    {
+        "id": 15,
+        "name": "LIMA",
+        "ineiCode": "15",
+        "reniecCode": "14"
+    },
+    {
+        "id": 16,
+        "name": "LORETO",
+        "ineiCode": "16",
+        "reniecCode": "15"
+    },
+    {
+        "id": 17,
+        "name": "MADRE DE DIOS",
+        "ineiCode": "17",
+        "reniecCode": "16"
+    },
+    {
+        "id": 18,
+        "name": "MOQUEGUA",
+        "ineiCode": "18",
+        "reniecCode": "17"
+    },
+    {
+        "id": 19,
+        "name": "PASCO",
+        "ineiCode": "19",
+        "reniecCode": "18"
+    },
+    {
+        "id": 20,
+        "name": "PIURA",
+        "ineiCode": "20",
+        "reniecCode": "19"
+    },
+    {
+        "id": 21,
+        "name": "PUNO",
+        "ineiCode": "21",
+        "reniecCode": "20"
+    },
+    {
+        "id": 22,
+        "name": "SAN MARTIN",
+        "ineiCode": "22",
+        "reniecCode": "21"
+    },
+    {
+        "id": 23,
+        "name": "TACNA",
+        "ineiCode": "23",
+        "reniecCode": "22"
+    },
+    {
+        "id": 24,
+        "name": "TUMBES",
+        "ineiCode": "24",
+        "reniecCode": "23"
+    },
+    {
+        "id": 25,
+        "name": "UCAYALI",
+        "ineiCode": "25",
+        "reniecCode": "25"
+    }
 ]

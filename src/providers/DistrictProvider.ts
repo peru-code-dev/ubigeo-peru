@@ -1,33 +1,37 @@
-import type { District } from '../types.js';
-import rawData from '../data/districts.json' with { type: 'json' };
+import type { District } from '@/types.js';
+import rawData from '@/data/districts.json' with { type: 'json' };
 
-const typedData = rawData as Record<string, District[]>;
-const flatData = Object.values(typedData).flat();
-const mapByUbigeo = new Map<string, District>(
-    flatData.map(d => [d.ubigeo, d])
-);
+const data: Record<string, District[]> = rawData;
+const flatData = Object.values(data).flat();
+const byId = new Map(flatData.map((p) => [p.id, p]));
+const byIneiCode = new Map<string, District>(flatData.map((d) => [d.ineiCode, d]));
+const byReniecCode = new Map<string, District>(flatData.map((d) => [d.reniecCode, d]));
+const searchable = flatData.map((d) => ({ district: d, name: d.name.toUpperCase() }));
 
 class DistrictProvider {
-    readonly #data: Record<string, District[]> = typedData;
-    readonly #flat: readonly District[] = flatData;
-    readonly #byUbigeo: Map<string, District> = mapByUbigeo;
-
-    byProvince(provinceId: number): readonly District[] {
-        return this.#data[provinceId] ?? [];
+    byProvinceId(provinceId: number): readonly District[] {
+        return data[String(provinceId)] ?? [];
     }
 
     find(id: number): District | null {
-        return this.#flat.find(d => d.id === id) ?? null;
-    }
-
-    findByUbigeo(ubigeo: string): District | null {
-        return this.#byUbigeo.get(ubigeo) ?? null;
+        return byId.get(id) ?? null;
     }
 
     search(query: string): District[] {
         const q = query.toUpperCase().trim();
         if (!q) return [];
-        return this.#flat.filter(d => d.name.toUpperCase().includes(q));
+
+        return searchable
+            .filter((d) => d.name.includes(q))
+            .map((d) => d.district);
+    }
+
+    findByIneiCode(code: string): District | null {
+        return byIneiCode.get(code) ?? null;
+    }
+
+    findByReniecCode(code: string): District | null {
+        return byReniecCode.get(code) ?? null;
     }
 }
 

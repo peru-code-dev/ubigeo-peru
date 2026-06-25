@@ -1,33 +1,37 @@
-import type { Province } from '../types.js';
-import rawData from '../data/provinces.json' with { type: 'json' };
+import type { Province } from '@/types.js';
+import rawData from '@/data/provinces.json' with { type: 'json' };
 
-const typedData = rawData as Record<string, Province[]>;
-const flatData = Object.values(typedData).flat();
-const mapByCode = new Map<string, Province>(
-    flatData.map(p => [p.code, p])
-);
+const data: Record<string, Province[]> = rawData;
+const flatData = Object.values(data).flat();
+const byId = new Map(flatData.map((p) => [p.id, p]));
+const byIneiCode = new Map<string, Province>(flatData.map((p) => [p.ineiCode, p]));
+const byReniecCode = new Map<string, Province>(flatData.map((p) => [p.reniecCode, p]));
+const searchable = flatData.map((p) => ({ province: p, name: p.name.toUpperCase() }));
 
 class ProvinceProvider {
-    readonly #data: Record<string, Province[]> = typedData;
-    readonly #flat: readonly Province[] = flatData;
-    readonly #byCode: Map<string, Province> = mapByCode;
-
-    byRegion(regionId: number): readonly Province[] {
-        return this.#data[regionId] ?? [];
+    byRegionId(regionId: number): readonly Province[] {
+        return data[String(regionId)] ?? [];
     }
 
     find(id: number): Province | null {
-        return this.#flat.find(p => p.id === id) ?? null;
-    }
-
-    findByCode(code: string): Province | null {
-        return this.#byCode.get(code) ?? null;
+        return byId.get(id) ?? null;
     }
 
     search(query: string): Province[] {
         const q = query.toUpperCase().trim();
         if (!q) return [];
-        return this.#flat.filter(p => p.name.toUpperCase().includes(q));
+
+        return searchable
+            .filter((p) => p.name.includes(q))
+            .map((p) => p.province);
+    }
+
+    findByIneiCode(code: string): Province | null {
+        return byIneiCode.get(code) ?? null;
+    }
+
+    findByReniecCode(code: string): Province | null {
+        return byReniecCode.get(code) ?? null;
     }
 }
 

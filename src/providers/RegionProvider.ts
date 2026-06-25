@@ -1,33 +1,50 @@
-import type { Region, ExpandedRegion } from '../types.js';
-import rawData from '../data/regions.json' with { type: 'json' };
-import provinceProvider from './ProvinceProvider.js';
-import districtProvider from './DistrictProvider.js';
+import type { Region, ExpandedRegion } from '@/types.js';
+import provinceProvider from '@/providers/ProvinceProvider.js';
+import districtProvider from '@/providers/DistrictProvider.js';
+import rawData from '@/data/regions.json' with { type: 'json' };
+
+const data: readonly Region[] = rawData;
+const byId = new Map(data.map((r) => [r.id, r]));
+const byIneiCode = new Map(data.map((r) => [r.ineiCode, r]));
+const byReniecCode = new Map(data.map((r) => [r.reniecCode, r]));
+const searchable = data.map((r) => ({ region: r, name: r.name.toUpperCase() }));
 
 class RegionProvider {
-    readonly #data: readonly Region[] = rawData as Region[];
-
     all(): readonly Region[] {
-        return this.#data;
+        return data;
     }
 
     find(id: number): Region | null {
-        return this.#data.find(r => r.id === id) ?? null;
+        return byId.get(id) ?? null;
     }
 
-    findByCode(code: string): Region | null {
-        return this.#data.find(r => r.code === code) ?? null;
+    search(query: string): Region[] {
+        const q = query.toUpperCase().trim();
+        if (!q) return [];
+
+        return searchable
+            .filter((r) => r.name.includes(q))
+            .map((r) => r.region);
     }
 
     expand(id: number): ExpandedRegion | null {
         const region = this.find(id);
         if (!region) return null;
 
-        const provinces = provinceProvider.byRegion(id).map(p => ({
+        const provinces = provinceProvider.byRegionId(id).map((p) => ({
             ...p,
-            districts: districtProvider.byProvince(p.id),
+            districts: districtProvider.byProvinceId(p.id),
         }));
 
         return { ...region, provinces };
+    }
+
+    findByIneiCode(code: string): Region | null {
+        return byIneiCode.get(code) ?? null;
+    }
+
+    findByReniecCode(code: string): Region | null {
+        return byReniecCode.get(code) ?? null;
     }
 }
 

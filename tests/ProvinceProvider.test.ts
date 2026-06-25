@@ -2,68 +2,71 @@ import { describe, it, expect } from 'vitest';
 import { provinces } from '@/index.js';
 
 describe('ProvinceProvider', () => {
-    describe('byRegion()', () => {
+    describe('byRegionId()', () => {
         it('should return provinces for region id 15 (Lima)', () => {
-            const result = provinces.byRegion(15);
+            const result = provinces.byRegionId(15);
             expect(result).toBeInstanceOf(Array);
             expect(result.length).toBeGreaterThan(0);
         });
 
         it('should return provinces with correct structure', () => {
-            const result = provinces.byRegion(15);
-            result.forEach(p => {
+            const result = provinces.byRegionId(15);
+            result.forEach((p) => {
                 expect(p).toHaveProperty('id');
                 expect(p).toHaveProperty('name');
-                expect(p).toHaveProperty('code');
+                expect(p).toHaveProperty('ineiCode');
+                expect(p).toHaveProperty('reniecCode');
                 expect(typeof p.id).toBe('number');
                 expect(typeof p.name).toBe('string');
-                expect(typeof p.code).toBe('string');
+                expect(typeof p.ineiCode).toBe('string');
+                expect(typeof p.reniecCode).toBe('string');
             });
         });
 
         it('should return exact province names for Lima region', () => {
-            const result = provinces.byRegion(15);
-            const names = result.map(p => p.name);
+            const result = provinces.byRegionId(15);
+            const names = result.map((p) => p.name);
             expect(names).toContain('LIMA');
             expect(names).toContain('BARRANCA');
             expect(names).toContain('CAJATAMBO');
         });
 
         it('should return empty array for region with no provinces', () => {
-            const result = provinces.byRegion(999);
+            const result = provinces.byRegionId(999);
             expect(result).toEqual([]);
         });
 
         it('should return empty array for negative id', () => {
-            expect(provinces.byRegion(-1)).toEqual([]);
+            expect(provinces.byRegionId(-1)).toEqual([]);
         });
 
         it('should return empty array for id 0', () => {
-            expect(provinces.byRegion(0)).toEqual([]);
+            expect(provinces.byRegionId(0)).toEqual([]);
         });
 
         it('should return provinces for region id 1 (Amazonas) if data exists', () => {
-            const result = provinces.byRegion(1);
+            const result = provinces.byRegionId(1);
             expect(result).toBeInstanceOf(Array);
         });
     });
 
     describe('find()', () => {
-        it('should return province for existing id 141 (Lima)', () => {
-            const result = provinces.find(141);
+        it('should return province for existing id 15 (Lima)', () => {
+            const result = provinces.find(128);
             expect(result).toBeDefined();
             expect(result!.name).toBe('LIMA');
-            expect(result!.code).toBe('1501');
+            expect(result!.ineiCode).toBe('1501');
+            expect(result!.reniecCode).toBe('1401');
         });
 
-        it('should return province for existing id 142 (Barranca)', () => {
-            const result = provinces.find(142);
+        it('should return province for existing id 129 (Barranca)', () => {
+            const result = provinces.find(129);
             expect(result).toBeDefined();
             expect(result!.name).toBe('BARRANCA');
         });
 
-        it('should return province for existing id 143 (Cajatambo)', () => {
-            const result = provinces.find(143);
+        it('should return province for existing id 130 (Cajatambo)', () => {
+            const result = provinces.find(130);
             expect(result).toBeDefined();
             expect(result!.name).toBe('CAJATAMBO');
         });
@@ -89,36 +92,61 @@ describe('ProvinceProvider', () => {
         });
     });
 
-    describe('findByCode()', () => {
-        it('should return province for existing code "1501" (Lima)', () => {
-            const result = provinces.findByCode('1501');
+    describe('findByIneiCode()', () => {
+        it('should return province for existing ineiCode "1501" (Lima)', () => {
+            const result = provinces.findByIneiCode('1501');
             expect(result).toBeDefined();
-            expect(result!.id).toBe(141);
+            expect(result!.id).toBe(128);
             expect(result!.name).toBe('LIMA');
         });
 
-        it('should return province for existing code "1502" (Barranca)', () => {
-            const result = provinces.findByCode('1502');
+        it('should return province for existing ineiCode "1502" (Barranca)', () => {
+            const result = provinces.findByIneiCode('1502');
             expect(result).toBeDefined();
             expect(result!.name).toBe('BARRANCA');
         });
 
-        it('should return province for existing code "1503" (Cajatambo)', () => {
-            const result = provinces.findByCode('1503');
+        it('should return province for existing ineiCode "1503" (Cajatambo)', () => {
+            const result = provinces.findByIneiCode('1503');
             expect(result).toBeDefined();
             expect(result!.name).toBe('CAJATAMBO');
         });
 
-        it('should return null for non-existing code', () => {
-            expect(provinces.findByCode('999999')).toBeNull();
+        it('should return null for non-existing ineiCode', () => {
+            expect(provinces.findByIneiCode('999999')).toBeNull();
         });
 
         it('should return null for empty string', () => {
-            expect(provinces.findByCode('')).toBeNull();
+            expect(provinces.findByIneiCode('')).toBeNull();
+        });
+    });
+
+    describe('findByReniecCode()', () => {
+        it('should return province for existing reniecCode "1401" (Lima)', () => {
+            const result = provinces.findByReniecCode('1401');
+            expect(result).toBeDefined();
+            expect(result!.id).toBe(128);
+            expect(result!.name).toBe('LIMA');
         });
 
-        it('should handle type coercion correctly', () => {
-            expect(provinces.findByCode(1501 as unknown as string)).toBeNull();
+        it('should return province for existing reniecCode "1409" (Barranca)', () => {
+            const result = provinces.findByReniecCode('1409');
+            expect(result).toBeDefined();
+            expect(result!.name).toBe('BARRANCA');
+        });
+
+        it('should return province for existing reniecCode "1402" (Cajatambo)', () => {
+            const result = provinces.findByReniecCode('1402');
+            expect(result).toBeDefined();
+            expect(result!.name).toBe('CAJATAMBO');
+        });
+
+        it('should return null for non-existing reniecCode', () => {
+            expect(provinces.findByReniecCode('999999')).toBeNull();
+        });
+
+        it('should return null for empty string', () => {
+            expect(provinces.findByReniecCode('')).toBeNull();
         });
     });
 
@@ -126,7 +154,7 @@ describe('ProvinceProvider', () => {
         it('should find provinces by exact name (uppercase)', () => {
             const result = provinces.search('LIMA');
             expect(result.length).toBeGreaterThan(0);
-            expect(result.some(p => p.name === 'LIMA')).toBe(true);
+            expect(result.some((p) => p.name === 'LIMA')).toBe(true);
         });
 
         it('should find provinces by partial name (case-insensitive)', () => {
@@ -137,7 +165,7 @@ describe('ProvinceProvider', () => {
         it('should find provinces by partial substring', () => {
             const result = provinces.search('RAN');
             expect(result.length).toBeGreaterThan(0);
-            expect(result.some(p => p.name === 'BARRANCA')).toBe(true);
+            expect(result.some((p) => p.name === 'BARRANCA')).toBe(true);
         });
 
         it('should return empty array for non-existing name', () => {
@@ -160,7 +188,7 @@ describe('ProvinceProvider', () => {
 
         it('should not contain duplicates in results', () => {
             const result = provinces.search('LIMA');
-            const ids = result.map(p => p.id);
+            const ids = result.map((p) => p.id);
             expect(new Set(ids).size).toBe(ids.length);
         });
     });
