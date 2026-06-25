@@ -11695,11 +11695,35 @@
             "ineiCode": "250303",
             "reniecCode": "250203",
             "name": "CURIMANÁ"
+        },
+        {
+            "ineiCode": "250304",
+            "reniecCode": "250204",
+            "name": "NESHUYA",
+            "id": 1886
+        },
+        {
+            "ineiCode": "250305",
+            "reniecCode": "250205",
+            "name": "ALEXANDER VON HUMBOLDT",
+            "id": 1887
+        },
+        {
+            "ineiCode": "250306",
+            "reniecCode": "250206",
+            "name": "HUIPOCA",
+            "id": 1888
+        },
+        {
+            "ineiCode": "250307",
+            "reniecCode": "250207",
+            "name": "BOQUERÓN",
+            "id": 1889
         }
     ],
     "195": [
         {
-            "id": 1886,
+            "id": 1890,
             "ineiCode": "250401",
             "reniecCode": "250401",
             "name": "PURÚS"
@@ -11710,25 +11734,25 @@
             "ineiCode": "160801",
             "reniecCode": "150901",
             "name": "PUTUMAYO",
-            "id": 1887
+            "id": 1891
         },
         {
             "ineiCode": "160802",
             "reniecCode": "150902",
             "name": "ROSA PANDURO",
-            "id": 1888
+            "id": 1892
         },
         {
             "ineiCode": "160803",
             "reniecCode": "150903",
             "name": "TENIENTE MANUEL CLAVERO",
-            "id": 1889
+            "id": 1893
         },
         {
             "ineiCode": "160804",
             "reniecCode": "150904",
             "name": "YAGUAS",
-            "id": 1890
+            "id": 1894
         }
     ]
 }
