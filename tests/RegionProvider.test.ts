@@ -1,6 +1,5 @@
 import { describe, it, expect } from 'vitest';
 import { regions, departments } from '@/index.js';
-import type { ExpandedRegion } from '@/types.js';
 
 describe('RegionProvider', () => {
     const TOTAL_REGIONS = 25;
@@ -109,8 +108,8 @@ describe('RegionProvider', () => {
             expect(result!.name).toBe('AMAZONAS');
         });
 
-        it('should return region for existing reniecCode "15" (Lima)', () => {
-            const result = regions.findByReniecCode('15');
+        it('should return region for existing reniecCode "14" (Lima)', () => {
+            const result = regions.findByReniecCode('14');
             expect(result).toBeDefined();
             expect(result!.name).toBe('LIMA');
         });
@@ -157,7 +156,7 @@ describe('RegionProvider', () => {
         });
 
         it('should return correct structure matching ExpandedRegion type', () => {
-            const result = regions.expand(15) as ExpandedRegion;
+            const result = regions.expand(15)!;
             expect(result).toBeDefined();
             expect(result.provinces).toBeInstanceOf(Array);
             if (result.provinces.length > 0) {

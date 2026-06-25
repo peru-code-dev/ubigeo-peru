@@ -7,14 +7,14 @@ describe('Integration: hierarchical relationships', () => {
         expect(region).toBeDefined();
         expect(region!.name).toBe('LIMA');
 
-        const regionProvinces = provinces.byRegion(region!.id);
+        const regionProvinces = provinces.byRegionId(region!.id);
         expect(regionProvinces.length).toBeGreaterThan(0);
 
         const limaProvince = regionProvinces.find(p => p.name === 'LIMA');
         expect(limaProvince).toBeDefined();
         expect(limaProvince!.ineiCode).toBe('1501');
 
-        const provinceDistricts = districts.byProvince(limaProvince!.id);
+        const provinceDistricts = districts.byProvinceId(limaProvince!.id);
         expect(provinceDistricts.length).toBeGreaterThan(0);
 
         const limaDistrict = provinceDistricts.find(d => d.name === 'LIMA');
@@ -26,20 +26,24 @@ describe('Integration: hierarchical relationships', () => {
         const region = regions.find(15);
         expect(region).toBeDefined();
 
-        const province = provinces.find(142);
+        const province = provinces.find(129);
         expect(province).toBeDefined();
         expect(province!.name).toBe('BARRANCA');
         expect(province!.ineiCode).toBe('1502');
 
-        const districtsInProvince = districts.byProvince(province!.id);
-        expect(districtsInProvince).toEqual([]);
+        const districtsInProvince = districts.byProvinceId(province!.id);
+        const names = districtsInProvince.map(p => p.name);
+        expect(names).toContain('BARRANCA');
+        expect(names).toContain('PARAMONGA');
+        expect(names).toContain('PATIVILCA');
+        expect(names).toContain('SUPE PUERTO');
     });
 
     it('should return consistent data between expand() and individual lookups', () => {
         const expanded = regions.expand(15);
         expect(expanded).toBeDefined();
 
-        const directProvinces = provinces.byRegion(15);
+        const directProvinces = provinces.byRegionId(15);
         expect(expanded!.provinces.length).toBe(directProvinces.length);
 
         expanded!.provinces.forEach((ep, i) => {
@@ -56,7 +60,7 @@ describe('Integration: hierarchical relationships', () => {
         const limaRegion = regions.findByIneiCode('15');
         expect(limaRegion).toBeDefined();
 
-        const regionProvinces = provinces.byRegion(limaRegion!.id);
+        const regionProvinces = provinces.byRegionId(limaRegion!.id);
         expect(regionProvinces.some(p => p.id === limaProvince!.id)).toBe(true);
     });
 
@@ -64,10 +68,10 @@ describe('Integration: hierarchical relationships', () => {
         const limaDistrict = districts.findByIneiCode('150101');
         expect(limaDistrict).toBeDefined();
 
-        const limaProvince = provinces.find(141);
+        const limaProvince = provinces.find(128);
         expect(limaProvince).toBeDefined();
 
-        const provinceDistricts = districts.byProvince(limaProvince!.id);
+        const provinceDistricts = districts.byProvinceId(limaProvince!.id);
         expect(provinceDistricts.some(d => d.id === limaDistrict!.id)).toBe(true);
     });
 

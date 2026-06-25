@@ -51,22 +51,22 @@ describe('ProvinceProvider', () => {
     });
 
     describe('find()', () => {
-        it('should return province for existing id 141 (Lima)', () => {
-            const result = provinces.find(141);
+        it('should return province for existing id 15 (Lima)', () => {
+            const result = provinces.find(128);
             expect(result).toBeDefined();
             expect(result!.name).toBe('LIMA');
             expect(result!.ineiCode).toBe('1501');
-            expect(result!.reniecCode).toBe('1501');
+            expect(result!.reniecCode).toBe('1401');
         });
 
-        it('should return province for existing id 142 (Barranca)', () => {
-            const result = provinces.find(142);
+        it('should return province for existing id 129 (Barranca)', () => {
+            const result = provinces.find(129);
             expect(result).toBeDefined();
             expect(result!.name).toBe('BARRANCA');
         });
 
-        it('should return province for existing id 143 (Cajatambo)', () => {
-            const result = provinces.find(143);
+        it('should return province for existing id 130 (Cajatambo)', () => {
+            const result = provinces.find(130);
             expect(result).toBeDefined();
             expect(result!.name).toBe('CAJATAMBO');
         });
@@ -96,7 +96,7 @@ describe('ProvinceProvider', () => {
         it('should return province for existing ineiCode "1501" (Lima)', () => {
             const result = provinces.findByIneiCode('1501');
             expect(result).toBeDefined();
-            expect(result!.id).toBe(141);
+            expect(result!.id).toBe(128);
             expect(result!.name).toBe('LIMA');
         });
 
@@ -122,21 +122,21 @@ describe('ProvinceProvider', () => {
     });
 
     describe('findByReniecCode()', () => {
-        it('should return province for existing reniecCode "1501" (Lima)', () => {
-            const result = provinces.findByReniecCode('1501');
+        it('should return province for existing reniecCode "1401" (Lima)', () => {
+            const result = provinces.findByReniecCode('1401');
             expect(result).toBeDefined();
-            expect(result!.id).toBe(141);
+            expect(result!.id).toBe(128);
             expect(result!.name).toBe('LIMA');
         });
 
-        it('should return province for existing reniecCode "1502" (Barranca)', () => {
-            const result = provinces.findByReniecCode('1502');
+        it('should return province for existing reniecCode "1409" (Barranca)', () => {
+            const result = provinces.findByReniecCode('1409');
             expect(result).toBeDefined();
             expect(result!.name).toBe('BARRANCA');
         });
 
-        it('should return province for existing reniecCode "1503" (Cajatambo)', () => {
-            const result = provinces.findByReniecCode('1503');
+        it('should return province for existing reniecCode "1402" (Cajatambo)', () => {
+            const result = provinces.findByReniecCode('1402');
             expect(result).toBeDefined();
             expect(result!.name).toBe('CAJATAMBO');
         });
