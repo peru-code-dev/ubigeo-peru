@@ -3,7 +3,7 @@ import provinceProvider from '@/providers/ProvinceProvider.js';
 import districtProvider from '@/providers/DistrictProvider.js';
 import rawData from '@/data/regions.json' with { type: 'json' };
 
-const data: readonly Region[] = rawData as Region[];
+const data: readonly Region[] = rawData;
 const byId = new Map(data.map(region => [region.id, region]));
 const byIneiCode = new Map(data.map(region => [region.ineiCode, region]));
 const byReniecCode = new Map(data.map(region => [region.reniecCode, region]));

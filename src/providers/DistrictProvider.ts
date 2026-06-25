@@ -1,7 +1,7 @@
 import type {District} from '@/types.js';
 import rawData from '@/data/districts.json' with { type: 'json' };
 
-const data = rawData as Record<string, District[]>;
+const data: Record<string, District[]> = rawData;
 const flatData = Object.values(data).flat();
 const byId = new Map(flatData.map(p => [p.id, p]));
 const byIneiCode = new Map<string, District>(flatData.map(d => [d.ineiCode, d]));

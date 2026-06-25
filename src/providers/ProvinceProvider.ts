@@ -1,7 +1,7 @@
 import type { Province } from '@/types.js';
 import rawData from '@/data/provinces.json' with { type: 'json' };
 
-const data = rawData as Record<string, Province[]>;
+const data: Record<string, Province[]> = rawData;
 const flatData = Object.values(data).flat();
 const byId = new Map(flatData.map(p => [p.id, p]));
 const byIneiCode = new Map<string, Province>(flatData.map(p => [p.ineiCode, p]));
