@@ -4,34 +4,61 @@ import { regions } from '@/index.js';
 const ITERATIONS = 10_000;
 const SAMPLES = regions.all();
 
-const existingCodes = SAMPLES.map(r => r.ineiCode);
+const existingCodes = SAMPLES.map((r) => r.ineiCode);
 const nonExistingCodes = ['99999', '00000', 'xxxxx', '', 'abcde'];
-const mixedQueries = [
-    ...existingCodes.slice(0, 100),
-    ...nonExistingCodes,
-];
+const mixedQueries = [...existingCodes.slice(0, 100), ...nonExistingCodes];
 
 describe('RegionProvider — performance benchmark', () => {
     it('should benchmark findByIneiCode vs findByReniecCode', () => {
         const results = [
-            benchmark('findByIneiCode (Map.get O(1))', q => regions.findByIneiCode(q), mixedQueries, ITERATIONS),
-            benchmark('findByReniecCode (Map.get O(1))', q => regions.findByReniecCode(q), mixedQueries, ITERATIONS),
+            benchmark(
+                'findByIneiCode (Map.get O(1))',
+                (q) => regions.findByIneiCode(q),
+                mixedQueries,
+                ITERATIONS,
+            ),
+            benchmark(
+                'findByReniecCode (Map.get O(1))',
+                (q) => regions.findByReniecCode(q),
+                mixedQueries,
+                ITERATIONS,
+            ),
         ];
         console.table(results);
     });
 
     it('should benchmark with 100% existing codes (hits)', () => {
         const r = [
-            benchmark('findByIneiCode (hits only)', q => regions.findByIneiCode(q), existingCodes, ITERATIONS),
-            benchmark('findByReniecCode (hits only)', q => regions.findByReniecCode(q), existingCodes, ITERATIONS),
+            benchmark(
+                'findByIneiCode (hits only)',
+                (q) => regions.findByIneiCode(q),
+                existingCodes,
+                ITERATIONS,
+            ),
+            benchmark(
+                'findByReniecCode (hits only)',
+                (q) => regions.findByReniecCode(q),
+                existingCodes,
+                ITERATIONS,
+            ),
         ];
         console.table(r);
     });
 
     it('should benchmark with 100% non-existing codes (misses)', () => {
         const r = [
-            benchmark('findByIneiCode (misses only)', q => regions.findByIneiCode(q), nonExistingCodes, ITERATIONS),
-            benchmark('findByReniecCode (misses only)', q => regions.findByReniecCode(q), nonExistingCodes, ITERATIONS),
+            benchmark(
+                'findByIneiCode (misses only)',
+                (q) => regions.findByIneiCode(q),
+                nonExistingCodes,
+                ITERATIONS,
+            ),
+            benchmark(
+                'findByReniecCode (misses only)',
+                (q) => regions.findByReniecCode(q),
+                nonExistingCodes,
+                ITERATIONS,
+            ),
         ];
         console.table(r);
     });

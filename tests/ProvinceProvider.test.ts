@@ -11,7 +11,7 @@ describe('ProvinceProvider', () => {
 
         it('should return provinces with correct structure', () => {
             const result = provinces.byRegionId(15);
-            result.forEach(p => {
+            result.forEach((p) => {
                 expect(p).toHaveProperty('id');
                 expect(p).toHaveProperty('name');
                 expect(p).toHaveProperty('ineiCode');
@@ -25,7 +25,7 @@ describe('ProvinceProvider', () => {
 
         it('should return exact province names for Lima region', () => {
             const result = provinces.byRegionId(15);
-            const names = result.map(p => p.name);
+            const names = result.map((p) => p.name);
             expect(names).toContain('LIMA');
             expect(names).toContain('BARRANCA');
             expect(names).toContain('CAJATAMBO');
@@ -154,7 +154,7 @@ describe('ProvinceProvider', () => {
         it('should find provinces by exact name (uppercase)', () => {
             const result = provinces.search('LIMA');
             expect(result.length).toBeGreaterThan(0);
-            expect(result.some(p => p.name === 'LIMA')).toBe(true);
+            expect(result.some((p) => p.name === 'LIMA')).toBe(true);
         });
 
         it('should find provinces by partial name (case-insensitive)', () => {
@@ -165,7 +165,7 @@ describe('ProvinceProvider', () => {
         it('should find provinces by partial substring', () => {
             const result = provinces.search('RAN');
             expect(result.length).toBeGreaterThan(0);
-            expect(result.some(p => p.name === 'BARRANCA')).toBe(true);
+            expect(result.some((p) => p.name === 'BARRANCA')).toBe(true);
         });
 
         it('should return empty array for non-existing name', () => {
@@ -188,7 +188,7 @@ describe('ProvinceProvider', () => {
 
         it('should not contain duplicates in results', () => {
             const result = provinces.search('LIMA');
-            const ids = result.map(p => p.id);
+            const ids = result.map((p) => p.id);
             expect(new Set(ids).size).toBe(ids.length);
         });
     });

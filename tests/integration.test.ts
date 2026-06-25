@@ -10,14 +10,14 @@ describe('Integration: hierarchical relationships', () => {
         const regionProvinces = provinces.byRegionId(region!.id);
         expect(regionProvinces.length).toBeGreaterThan(0);
 
-        const limaProvince = regionProvinces.find(p => p.name === 'LIMA');
+        const limaProvince = regionProvinces.find((p) => p.name === 'LIMA');
         expect(limaProvince).toBeDefined();
         expect(limaProvince!.ineiCode).toBe('1501');
 
         const provinceDistricts = districts.byProvinceId(limaProvince!.id);
         expect(provinceDistricts.length).toBeGreaterThan(0);
 
-        const limaDistrict = provinceDistricts.find(d => d.name === 'LIMA');
+        const limaDistrict = provinceDistricts.find((d) => d.name === 'LIMA');
         expect(limaDistrict).toBeDefined();
         expect(limaDistrict!.ineiCode).toBe('150101');
     });
@@ -32,7 +32,7 @@ describe('Integration: hierarchical relationships', () => {
         expect(province!.ineiCode).toBe('1502');
 
         const districtsInProvince = districts.byProvinceId(province!.id);
-        const names = districtsInProvince.map(p => p.name);
+        const names = districtsInProvince.map((p) => p.name);
         expect(names).toContain('BARRANCA');
         expect(names).toContain('PARAMONGA');
         expect(names).toContain('PATIVILCA');
@@ -61,7 +61,7 @@ describe('Integration: hierarchical relationships', () => {
         expect(limaRegion).toBeDefined();
 
         const regionProvinces = provinces.byRegionId(limaRegion!.id);
-        expect(regionProvinces.some(p => p.id === limaProvince!.id)).toBe(true);
+        expect(regionProvinces.some((p) => p.id === limaProvince!.id)).toBe(true);
     });
 
     it('should find district then verify it belongs to correct province', () => {
@@ -72,7 +72,7 @@ describe('Integration: hierarchical relationships', () => {
         expect(limaProvince).toBeDefined();
 
         const provinceDistricts = districts.byProvinceId(limaProvince!.id);
-        expect(provinceDistricts.some(d => d.id === limaDistrict!.id)).toBe(true);
+        expect(provinceDistricts.some((d) => d.id === limaDistrict!.id)).toBe(true);
     });
 
     it('should verify ubigeo code structure (regionCode + provinceCode + districtCode)', () => {

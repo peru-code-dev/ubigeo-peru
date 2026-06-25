@@ -1,5 +1,5 @@
-import {describe, it, expect} from 'vitest';
-import {districts} from '@/index.js';
+import { describe, it, expect } from 'vitest';
+import { districts } from '@/index.js';
 
 describe('DistrictProvider', () => {
     describe('byProvince()', () => {
@@ -11,7 +11,7 @@ describe('DistrictProvider', () => {
 
         it('should return districts with correct structure', () => {
             const result = districts.byProvinceId(141);
-            result.forEach(d => {
+            result.forEach((d) => {
                 expect(d).toHaveProperty('id');
                 expect(d).toHaveProperty('name');
                 expect(d).toHaveProperty('ineiCode');
@@ -25,7 +25,7 @@ describe('DistrictProvider', () => {
 
         it('should return known districts for Lima province', () => {
             const result = districts.byProvinceId(128);
-            const names = result.map(d => d.name);
+            const names = result.map((d) => d.name);
             expect(names).toContain('LIMA');
             expect(names).toContain('ANCÓN');
             expect(names).toContain('ATE');
@@ -48,7 +48,7 @@ describe('DistrictProvider', () => {
 
         it('should not contain duplicates', () => {
             const result = districts.byProvinceId(141);
-            const ids = result.map(d => d.id);
+            const ids = result.map((d) => d.id);
             expect(new Set(ids).size).toBe(ids.length);
         });
     });
@@ -138,19 +138,19 @@ describe('DistrictProvider', () => {
         it('should find districts by exact name (uppercase)', () => {
             const result = districts.search('LIMA');
             expect(result.length).toBeGreaterThan(0);
-            expect(result.some(d => d.name === 'LIMA')).toBe(true);
+            expect(result.some((d) => d.name === 'LIMA')).toBe(true);
         });
 
         it('should find districts by partial name (case-insensitive)', () => {
             const result = districts.search('ancón');
             expect(result.length).toBeGreaterThan(0);
-            expect(result.some(d => d.name === 'ANCÓN')).toBe(true);
+            expect(result.some((d) => d.name === 'ANCÓN')).toBe(true);
         });
 
         it('should find districts by partial substring', () => {
             const result = districts.search('RAN');
             expect(result.length).toBeGreaterThan(0);
-            expect(result.some(d => d.name === 'BARRANCO')).toBe(true);
+            expect(result.some((d) => d.name === 'BARRANCO')).toBe(true);
         });
 
         it('should return empty array for non-existing name', () => {
@@ -173,7 +173,7 @@ describe('DistrictProvider', () => {
 
         it('should not contain duplicates in results', () => {
             const result = districts.search('LIMA');
-            const ids = result.map(d => d.id);
+            const ids = result.map((d) => d.id);
             expect(new Set(ids).size).toBe(ids.length);
         });
     });

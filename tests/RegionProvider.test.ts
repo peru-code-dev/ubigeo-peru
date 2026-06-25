@@ -12,7 +12,7 @@ describe('RegionProvider', () => {
 
         it('should return regions with correct structure including ineiCode and reniecCode', () => {
             const result = regions.all();
-            result.forEach(r => {
+            result.forEach((r) => {
                 expect(r).toHaveProperty('id');
                 expect(r).toHaveProperty('name');
                 expect(r).toHaveProperty('ineiCode');
@@ -26,9 +26,9 @@ describe('RegionProvider', () => {
 
         it('should not contain duplicate ids, ineiCodes or reniecCodes', () => {
             const result = regions.all();
-            const ids = result.map(r => r.id);
-            const inei = result.map(r => r.ineiCode);
-            const reniec = result.map(r => r.reniecCode);
+            const ids = result.map((r) => r.id);
+            const inei = result.map((r) => r.ineiCode);
+            const reniec = result.map((r) => r.reniecCode);
             expect(new Set(ids).size).toBe(ids.length);
             expect(new Set(inei).size).toBe(inei.length);
             expect(new Set(reniec).size).toBe(reniec.length);
@@ -142,7 +142,7 @@ describe('RegionProvider', () => {
         it('should include districts in each expanded province', () => {
             const result = regions.expand(15);
             expect(result).toBeDefined();
-            result!.provinces.forEach(province => {
+            result!.provinces.forEach((province) => {
                 expect(province).toHaveProperty('id');
                 expect(province).toHaveProperty('name');
                 expect(province).toHaveProperty('ineiCode');
@@ -168,7 +168,7 @@ describe('RegionProvider', () => {
 
     describe('departments alias', () => {
         it('should be the same reference as regions', async () => {
-            const {departments} = await import('@/index.js');
+            const { departments } = await import('@/index.js');
             expect(departments).toBe(regions);
         });
 
