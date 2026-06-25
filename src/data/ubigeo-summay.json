@@ -1,0 +1,23 @@
+{
+    "country": "Peru",
+    "ubigeo": {
+        "regions": {
+            "count": 25,
+            "description": "Regions"
+        },
+        "provinces": {
+            "count": 196,
+            "description": "Provinces"
+        },
+        "districts": {
+            "count": 1893,
+            "description": "Districts"
+        }
+    },
+    "total_administrative_units": 2114,
+    "metadata": {
+        "last_updated": "2026-06-24",
+        "source": "INEI - Instituto Nacional de Estadística e Informática",
+        "notes": "Data counts for Peruvian ubigeo codes"
+    }
+}
