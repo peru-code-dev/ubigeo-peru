@@ -50,6 +50,8 @@ provinces.search("barran");
 
 ### Expand (full hierarchy)
 
+> ⚠️ **Performance note:** `expand()` loads the complete province and district tree for a region. Prefer `provinces.byRegionId()` + `districts.byProvinceId()` for granular access.
+
 ```ts
 const lima = regions.expand(15);
 // ExpandedRegion {
@@ -95,7 +97,7 @@ regions.all();               // all 25 regions
 | `all` | `(): readonly Region[]` | Returns all 25 regions. |
 | `find` | `(id: number): Region \| null` | O(1) lookup by internal canonical id. |
 | `search` | `(query: string): Region[]` | Case-insensitive substring search on region names. |
-| `expand` | `(id: number): ExpandedRegion \| null` | Returns the full region → province → district tree. |
+| `expand` | `(id: number): ExpandedRegion \| null` | Returns the full region → province → district tree. Use sparingly — loads the full hierarchy. |
 | `findByIneiCode` | `(code: string): Region \| null` | Lookup by INEI code (e.g. `"15"`). |
 | `findByReniecCode` | `(code: string): Region \| null` | Lookup by RENIEC code (e.g. `"14"`). |
 
