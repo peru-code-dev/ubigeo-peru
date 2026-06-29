@@ -2,6 +2,13 @@
     "name": "@perucode/ubigeo-peru",
     "version": "1.0.0",
     "description": "SDK for Peruvian ubigeo data — zero dependencies",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/peru-code-dev/ubigeo-peru"
+    },
+    "bugs": {
+        "url": "https://github.com/peru-code-dev/ubigeo-peru/issues"
+    },
     "type": "module",
     "main": "./dist/index.cjs",
     "module": "./dist/index.js",
